@@ -1,1 +1,8 @@
-ryzen 5 5600x
+Ryzen 5 5600G (AM4)
+Ryzen 7 5700G (AM4)
+Core i5-10400 (LGA1200)
+Core i5-12400 (LGA1700)
+Ryzen 5 3600 (AM4)
+Ryzen 5 5600 (AM4)
+Ryzen 5 7500F (AM5)
+Core i5-10400F (LGA1200)

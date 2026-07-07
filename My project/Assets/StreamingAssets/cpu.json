@@ -1,0 +1,68 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "AMD Ryzen 5 5600G",
+      "socketId": 1,
+      "hasIntegratedGraphics": true,
+      "tdp": 65,
+      "price": 11200
+    },
+    {
+      "id": 2,
+      "name": "AMD Ryzen 7 5700G",
+      "socketId": 1,
+      "hasIntegratedGraphics": true,
+      "tdp": 65,
+      "price": 15400
+    },
+    {
+      "id": 3,
+      "name": "Intel Core i5-10400",
+      "socketId": 3,
+      "hasIntegratedGraphics": true,
+      "tdp": 65,
+      "price": 9800
+    },
+    {
+      "id": 4,
+      "name": "Intel Core i5-12400",
+      "socketId": 4,
+      "hasIntegratedGraphics": true,
+      "tdp": 65,
+      "price": 12700
+    },
+    {
+      "id": 5,
+      "name": "AMD Ryzen 5 3600",
+      "socketId": 1,
+      "hasIntegratedGraphics": false,
+      "tdp": 65,
+      "price": 7300
+    },
+    {
+      "id": 6,
+      "name": "AMD Ryzen 5 5600",
+      "socketId": 1,
+      "hasIntegratedGraphics": false,
+      "tdp": 65,
+      "price": 10500
+    },
+    {
+      "id": 7,
+      "name": "AMD Ryzen 5 7500F",
+      "socketId": 2,
+      "hasIntegratedGraphics": false,
+      "tdp": 65,
+      "price": 14900
+    },
+    {
+      "id": 8,
+      "name": "Intel Core i5-10400F",
+      "socketId": 3,
+      "hasIntegratedGraphics": false,
+      "tdp": 65,
+      "price": 8200
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "items": [
+    {
+      "id": 401,
+      "name": "Kingston FURY Beast Black",
+      "type": "DDR4",
+      "capacityGb": 8,
+      "kitCount": 1,
+      "frequencyMhz": 3200,
+      "price": 2600
+    },
+    {
+      "id": 402,
+      "name": "G.Skill AEGIS",
+      "type": "DDR4",
+      "capacityGb": 16,
+      "kitCount": 2,
+      "frequencyMhz": 3200,
+      "price": 3700
+    },
+    {
+      "id": 403,
+      "name": "Kingston FURY Beast Black",
+      "type": "DDR4",
+      "capacityGb": 16,
+      "kitCount": 2,
+      "frequencyMhz": 3200,
+      "price": 4900
+    },
+    {
+      "id": 404,
+      "name": "Corsair Vengeance LPX",
+      "type": "DDR4",
+      "capacityGb": 32,
+      "kitCount": 2,
+      "frequencyMhz": 3200,
+      "price": 8600
+    },
+    {
+      "id": 405,
+      "name": "Kingston FURY Beast Black DDR5",
+      "type": "DDR5",
+      "capacityGb": 16,
+      "kitCount": 2,
+      "frequencyMhz": 5600,
+      "price": 7400
+    },
+    {
+      "id": 406,
+      "name": "Kingston FURY Beast Black DDR5",
+      "type": "DDR5",
+      "capacityGb": 32,
+      "kitCount": 2,
+      "frequencyMhz": 6000,
+      "price": 12800
+    },
+    {
+      "id": 407,
+      "name": "G.Skill FLARE X5",
+      "type": "DDR5",
+      "capacityGb": 32,
+      "kitCount": 2,
+      "frequencyMhz": 6000,
+      "price": 13200
+    },
+    {
+      "id": 408,
+      "name": "G.Skill TRIDENT Z5 RGB",
+      "type": "DDR5",
+      "capacityGb": 64,
+      "kitCount": 2,
+      "frequencyMhz": 6400,
+      "price": 24500
+    }
+  ]
+}

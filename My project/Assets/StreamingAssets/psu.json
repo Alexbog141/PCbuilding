@@ -1,0 +1,68 @@
+{
+  "items": [
+    {
+      "id": 501,
+      "name": "Deepcool PF400",
+      "power": 400,
+      "efficiency": "80 PLUS",
+      "isAtx3": false,
+      "price": 3200
+    },
+    {
+      "id": 502,
+      "name": "FSP PNR PRO 500W",
+      "power": 500,
+      "efficiency": "без сертификата",
+      "isAtx3": false,
+      "price": 3600
+    },
+    {
+      "id": 503,
+      "name": "Deepcool PK600D",
+      "power": 600,
+      "efficiency": "80 PLUS Bronze",
+      "isAtx3": false,
+      "price": 5100
+    },
+    {
+      "id": 504,
+      "name": "Cooler Master MWE Bronze 650W V2",
+      "power": 650,
+      "efficiency": "80 PLUS Bronze",
+      "isAtx3": false,
+      "price": 6400
+    },
+    {
+      "id": 505,
+      "name": "Montech Century 750W",
+      "power": 750,
+      "efficiency": "80 PLUS Gold",
+      "isAtx3": false,
+      "price": 9600
+    },
+    {
+      "id": 506,
+      "name": "Deepcool DQ850-M-V2L",
+      "power": 850,
+      "efficiency": "80 PLUS Gold",
+      "isAtx3": false,
+      "price": 12300
+    },
+    {
+      "id": 507,
+      "name": "Montech TITAN GOLD 1000W",
+      "power": 1000,
+      "efficiency": "80 PLUS Gold",
+      "isAtx3": true,
+      "price": 15400
+    },
+    {
+      "id": 508,
+      "name": "Super Flower Leadex VII Gold 1000W",
+      "power": 1000,
+      "efficiency": "80 PLUS Gold",
+      "isAtx3": true,
+      "price": 19800
+    }
+  ]
+}

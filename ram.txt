@@ -1,0 +1,8 @@
+Kingston FURY Beast Black [8 ГБ, 1 шт] (3200 МГц)(ddr4)
+G.Skill AEGIS [16 ГБ, 2 шт по 8] (3200 МГц)(ddr4)
+Kingston FURY Beast Black [16 ГБ, 2 шт по 8] (3200 МГц)(ddr4)
+Corsair Vengeance LPX [32 ГБ, 2 шт по 16] (3200/3600 МГц)(ddr4)
+Kingston FURY Beast Black DDR5 [16 ГБ, 2 шт по 8] (5200/5600 МГц)(ddr5)
+Kingston FURY Beast Black DDR5 [32 ГБ, 2 шт по 16] (6000 МГц)(ddr5)
+G.Skill FLARE X5 [32 ГБ, 2 шт по 16] (6000 МГц)(ddr5)
+G.Skill TRIDENT Z5 RGB [64 ГБ, 2 шт по 32] (6400 МГц)(ddr5)
