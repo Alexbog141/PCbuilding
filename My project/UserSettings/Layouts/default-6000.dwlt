@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Hierarchy
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 112}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 38
+  controlID: 106
   draggingID: 0
 --- !u!114 &3
 MonoBehaviour:
@@ -69,8 +69,8 @@ MonoBehaviour:
     y: 0
     width: 487
     height: 941
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 76}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 112}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 39
+  controlID: 43
   draggingID: 0
 --- !u!114 &10
 MonoBehaviour:
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 56}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 40
+  controlID: 44
   draggingID: 0
 --- !u!114 &11
 MonoBehaviour:
@@ -639,7 +639,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Models/case/small
+    - Assets/Models/tube
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -649,7 +649,7 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Models/case/small
+  - Assets/Models/tube
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\kekar\Documents\GitHub\PCbuilding\My project
   m_LockTracker:
@@ -658,21 +658,21 @@ MonoBehaviour:
   m_FolderTreeState:
     scrollPos: {x: 0, y: 95}
     m_SelectedIDs:
-    - m_rawData: 568105584918849268
+    - m_rawData: 568105584918846830
     m_LastClickedID:
-      m_rawData: 568105584918849268
+      m_rawData: 568105584918846830
     m_ExpandedIDs:
-    - m_rawData: 568105589213754422
+    - m_rawData: 568105589213754406
     - m_rawData: 0
-    - m_rawData: 568105584918843500
-    - m_rawData: 568105584918843872
-    - m_rawData: 568105584918845664
-    - m_rawData: 568105584918845668
-    - m_rawData: 568105584918845796
-    - m_rawData: 568105584918845822
-    - m_rawData: 568105584918845884
-    - m_rawData: 568105584918846014
-    - m_rawData: 568105584918848868
+    - m_rawData: 568105584918846512
+    - m_rawData: 568105584918846514
+    - m_rawData: 568105584918846516
+    - m_rawData: 568105584918846518
+    - m_rawData: 568105584918846520
+    - m_rawData: 568105584918846522
+    - m_rawData: 568105584918846524
+    - m_rawData: 568105584918846526
+    - m_rawData: 568105584918846826
     - m_rawData: 568105587066273791
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -707,7 +707,14 @@ MonoBehaviour:
       m_rawData: 0
     m_ExpandedIDs:
     - m_rawData: 0
-    - m_rawData: 568105584918843500
+    - m_rawData: 568105584918846512
+    - m_rawData: 568105584918846514
+    - m_rawData: 568105584918846516
+    - m_rawData: 568105584918846518
+    - m_rawData: 568105584918846520
+    - m_rawData: 568105584918846522
+    - m_rawData: 568105584918846524
+    - m_rawData: 568105584918846526
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -736,9 +743,9 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
     m_SelectedInstanceIDs:
-    - m_rawData: 568105589213727868
+    - m_rawData: 568105589213754092
     m_LastClickedEntityId:
-      m_rawData: 568105589213727868
+      m_rawData: 568105589213754092
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs:
     - m_rawData: 568105584918843900
@@ -746,10 +753,12 @@ MonoBehaviour:
     - m_rawData: 568105584918845936
     - m_rawData: 568105584918848850
     - m_rawData: 568105584918849144
+    - m_rawData: 568105584918843876
+    - m_rawData: 568105584918843874
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Models
-      m_OriginalName: Models
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
@@ -757,10 +766,10 @@ MonoBehaviour:
         width: 0
         height: 0
       m_UserData:
-        m_rawData: 568105584918843872
+        m_rawData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
       m_ClientGUIView: {fileID: 5}
@@ -874,14 +883,11 @@ MonoBehaviour:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs:
-      - m_rawData: 568105589213727868
+      - m_rawData: 568105589213754092
       m_LastClickedID:
-        m_rawData: 568105589213727868
+        m_rawData: 568105589213754092
       m_ExpandedIDs:
-      - m_rawData: 568105589213727872
-      - m_rawData: 568105589213728280
-      - m_rawData: 568105589213752720
-      - m_rawData: 568105589213755910
+      - m_rawData: 568105589213756064
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1435,9 +1441,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -707.48706, y: -10.801637, z: 69.20262}
+    m_Target: {x: -667.7371, y: 8.682079, z: -15.11084}
     speed: 2
-    m_Value: {x: -707.48706, y: -10.801637, z: 69.20262}
+    m_Value: {x: -667.7371, y: 8.682079, z: -15.11084}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1484,20 +1490,20 @@ MonoBehaviour:
     m_gridOpacity: 0.482
     m_NearestPlaneToHandleMode: 0
   m_Rotation:
-    m_Target: {x: 0.12229754, y: -0.8360488, z: 0.20758052, w: 0.4930322}
+    m_Target: {x: 0.17177723, y: 0.71591264, z: -0.18908739, w: 0.6498743}
     speed: 2
-    m_Value: {x: 0.12260236, y: -0.8352646, z: 0.207386, w: 0.49425983}
+    m_Value: {x: 0.17274056, y: 0.715582, z: -0.1901489, w: 0.6495741}
   m_Size:
-    m_Target: 14.433614
+    m_Target: 0.42527026
     speed: 2
-    m_Value: 13.812071
+    m_Value: 0.44530916
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 1.005
-    m_SpeedNormalized: 0.49999997
+    m_Speed: 0.8855999
+    m_SpeedNormalized: 0.43999997
     m_SpeedMin: 0.01
     m_SpeedMax: 2
     m_EasingEnabled: 1
