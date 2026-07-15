@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 112}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 51
+  controlID: 58
   draggingID: 0
 --- !u!114 &3
 MonoBehaviour:
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 112}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 52
+  controlID: 59
   draggingID: 0
 --- !u!114 &10
 MonoBehaviour:
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 56}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 53
+  controlID: 60
   draggingID: 0
 --- !u!114 &11
 MonoBehaviour:
@@ -639,7 +639,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Models/ram
+    - Assets/Models/ram/ddr5 slow/source
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -649,36 +649,41 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Models/ram
+  - Assets/Models/ram/ddr5 slow/source
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\kekar\Documents\GitHub\PCbuilding\My project
   m_LockTracker:
     m_IsLocked: 0
   m_LastLocalAssetsSearchArea: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
+    scrollPos: {x: 0, y: 233}
     m_SelectedIDs:
-    - m_rawData: 568105584918847436
+    - m_rawData: 568105584918847952
     m_LastClickedID:
-      m_rawData: 568105584918847436
+      m_rawData: 568105584918847952
     m_ExpandedIDs:
-    - m_rawData: 568105589213753740
+    - m_rawData: 568105589213753448
     - m_rawData: 0
-    - m_rawData: 568105584918846576
-    - m_rawData: 568105584918846578
-    - m_rawData: 568105584918846580
-    - m_rawData: 568105584918846582
-    - m_rawData: 568105584918846584
-    - m_rawData: 568105584918846586
-    - m_rawData: 568105584918846588
-    - m_rawData: 568105584918846590
-    - m_rawData: 568105584918846592
-    - m_rawData: 568105584918846594
-    - m_rawData: 568105584918846596
-    - m_rawData: 568105584918846598
-    - m_rawData: 568105584918846600
-    - m_rawData: 568105584918846602
-    - m_rawData: 568105584918846604
+    - m_rawData: 568105584918847056
+    - m_rawData: 568105584918847058
+    - m_rawData: 568105584918847060
+    - m_rawData: 568105584918847062
+    - m_rawData: 568105584918847064
+    - m_rawData: 568105584918847066
+    - m_rawData: 568105584918847068
+    - m_rawData: 568105584918847070
+    - m_rawData: 568105584918847072
+    - m_rawData: 568105584918847074
+    - m_rawData: 568105584918847076
+    - m_rawData: 568105584918847078
+    - m_rawData: 568105584918847080
+    - m_rawData: 568105584918847082
+    - m_rawData: 568105584918847084
+    - m_rawData: 568105584918847400
+    - m_rawData: 568105584918847504
+    - m_rawData: 568105584918847506
+    - m_rawData: 568105584918847508
+    - m_rawData: 568105584918847510
     - m_rawData: 568105587066273791
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -713,21 +718,21 @@ MonoBehaviour:
       m_rawData: 0
     m_ExpandedIDs:
     - m_rawData: 0
-    - m_rawData: 568105584918846576
-    - m_rawData: 568105584918846578
-    - m_rawData: 568105584918846580
-    - m_rawData: 568105584918846582
-    - m_rawData: 568105584918846584
-    - m_rawData: 568105584918846586
-    - m_rawData: 568105584918846588
-    - m_rawData: 568105584918846590
-    - m_rawData: 568105584918846592
-    - m_rawData: 568105584918846594
-    - m_rawData: 568105584918846596
-    - m_rawData: 568105584918846598
-    - m_rawData: 568105584918846600
-    - m_rawData: 568105584918846602
-    - m_rawData: 568105584918846604
+    - m_rawData: 568105584918847056
+    - m_rawData: 568105584918847058
+    - m_rawData: 568105584918847060
+    - m_rawData: 568105584918847062
+    - m_rawData: 568105584918847064
+    - m_rawData: 568105584918847066
+    - m_rawData: 568105584918847068
+    - m_rawData: 568105584918847070
+    - m_rawData: 568105584918847072
+    - m_rawData: 568105584918847074
+    - m_rawData: 568105584918847076
+    - m_rawData: 568105584918847078
+    - m_rawData: 568105584918847080
+    - m_rawData: 568105584918847082
+    - m_rawData: 568105584918847084
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -756,9 +761,9 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
     m_SelectedInstanceIDs:
-    - m_rawData: 568105584918845122
+    - m_rawData: 568105589213755738
     m_LastClickedEntityId:
-      m_rawData: 568105584918845122
+      m_rawData: 568105589213755738
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs:
     - m_rawData: 568105584918843900
@@ -894,25 +899,14 @@ MonoBehaviour:
     m_DynamicPanelBehaviorModified: 0
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 80}
+      scrollPos: {x: 0, y: 0}
       m_SelectedIDs:
-      - m_rawData: 568105584918845122
+      - m_rawData: 568105589213755738
       m_LastClickedID:
-        m_rawData: 568105584918845122
+        m_rawData: 568105589213755738
       m_ExpandedIDs:
-      - m_rawData: 568105589213748380
-      - m_rawData: 568105589213748490
-      - m_rawData: 568105589213748600
-      - m_rawData: 568105589213749460
-      - m_rawData: 568105589213749998
-      - m_rawData: 568105589213750000
-      - m_rawData: 568105589213752656
-      - m_rawData: 568105589213753830
-      - m_rawData: 568105589213753848
-      - m_rawData: 568105589213753866
-      - m_rawData: 568105589213753884
-      - m_rawData: 568105589213755804
-      - m_rawData: 568105584918845092
+      - m_rawData: 568105589213755074
+      - m_rawData: 568105584918845218
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1466,9 +1460,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -700.29364, y: 0.9812341, z: 61.011997}
+    m_Target: {x: -681.72656, y: 2.5305276, z: 56.339584}
     speed: 2
-    m_Value: {x: -700.29364, y: 0.9812341, z: 61.011997}
+    m_Value: {x: -681.72656, y: 2.5305276, z: 56.339584}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1515,13 +1509,13 @@ MonoBehaviour:
     m_gridOpacity: 0.482
     m_NearestPlaneToHandleMode: 0
   m_Rotation:
-    m_Target: {x: 0.14925402, y: -0.5902109, z: 0.11218073, w: 0.78539443}
+    m_Target: {x: -0.5057159, y: 0.053305395, z: -0.03132661, w: -0.8605342}
     speed: 2
-    m_Value: {x: 0.15059721, y: -0.58884746, z: 0.11283713, w: 0.7860324}
+    m_Value: {x: -0.5056455, y: 0.05459367, z: -0.0320837, w: -0.8604144}
   m_Size:
-    m_Target: 10.854043
+    m_Target: 4.525386
     speed: 2
-    m_Value: 10.386644
+    m_Value: 4.738624
   m_Ortho:
     m_Target: 0
     speed: 2
