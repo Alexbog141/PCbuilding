@@ -1616,6 +1616,8 @@ GameObject:
   - component: {fileID: 572026010}
   - component: {fileID: 572026009}
   - component: {fileID: 572026011}
+  - component: {fileID: 572026012}
+  - component: {fileID: 572026013}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1672,6 +1674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildManager
   db: {fileID: 572026009}
   stateManager: {fileID: 572026011}
+  aiController: {fileID: 0}
 --- !u!114 &572026011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1693,6 +1696,32 @@ MonoBehaviour:
   installedStorage: 
   installedCase: 
   isThermalPasteApplied: 0
+--- !u!114 &572026012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572026006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf33df01fc5071b43825f04e779a8b7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AIController
+  modelAsset: {fileID: 5022602860645237092, guid: bfd46a97e17ce4d4a897db9466cd8df6, type: 3}
+--- !u!114 &572026013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572026006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 338781306ffb96c42953130f8cffd91f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AITester
+  aiController: {fileID: 572026012}
 --- !u!1 &594707942
 GameObject:
   m_ObjectHideFlags: 0
