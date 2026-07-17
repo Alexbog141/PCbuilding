@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 using System.Collections; // Обязательно нужно для IEnumerator
+using UnityEngine.InputSystem;
 
 public class BuildManager : MonoBehaviour
 {
@@ -127,26 +128,11 @@ public class BuildManager : MonoBehaviour
 
     private bool CheckBuildOrder(PartType newPartType)
     {
-        // 1. Материнская плата должна быть первой
-        if (newPartType == PartType.Motherboard)
-            return installedParts.Count == 0;
-
-        // 2. Процессор ставится только после материнской платы
-        if (newPartType == PartType.CPU)
-            return installedParts.Contains(PartType.Motherboard);
-
-        // 3. Оперативная память ставится после процессора
-        if (newPartType == PartType.RAM)
-            return installedParts.Contains(PartType.CPU);
-
-        // 4. Кулер ставится после оперативной памяти
-        if (newPartType == PartType.Cooler)
-            return installedParts.Contains(PartType.RAM);
-
-        // 5. Видеокарта ставится последней, после кулера
-        if (newPartType == PartType.GPU)
-            return installedParts.Contains(PartType.Cooler);
-
+        if (newPartType == PartType.Motherboard) return installedParts.Count == 0;
+        if (newPartType == PartType.CPU) return installedParts.Contains(PartType.Motherboard);
+        if (newPartType == PartType.RAM) return installedParts.Contains(PartType.CPU);
+        if (newPartType == PartType.Cooler) return installedParts.Contains(PartType.RAM);
+        if (newPartType == PartType.GPU) return installedParts.Contains(PartType.Cooler);
 
         return true;
     }
@@ -155,7 +141,12 @@ public class BuildManager : MonoBehaviour
     {
         if (aiController == null) { Debug.LogError("AIController не назначен!"); return; }
         if (stateManager == null) { Debug.LogError("StateManager не назначен!"); return; }
-        string prompt = $"Analyze PC build compatibility strictly based on sockets and TDP. MB: {stateManager.installedMotherboard}, CPU: {stateManager.installedCpu}, GPU: {stateManager.installedGpu}, PSU: {stateManager.installedPsu}. Verdict:";
+
+        // Берем готовый промпт из твоего StateManager
+        string prompt = stateManager.GeneratePromptForAI();
+
+        // Отправляем его в нейронку
+        aiController.CheckCompatibility(prompt, OnAIResponseReceived);
     }
 
     private void OnAIResponseReceived(string finalAnswer)
@@ -164,5 +155,13 @@ public class BuildManager : MonoBehaviour
     }
 
     // --- ВАШ ТЕСТОВЫЙ БЛОК ---
- 
+    void Update()
+    {
+        // Новый синтаксис отслеживания кнопок (не конфликтует с VR)
+        if (Keyboard.current != null && Keyboard.current.enterKey.wasPressedThisFrame)
+        {
+            Debug.Log("Отправляю запрос к ИИ по кнопке Enter...");
+            FinishBuildAndCheckAI();
+        }
+    }
 }
