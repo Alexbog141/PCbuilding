@@ -126,6 +126,50 @@ public class BuildManager : MonoBehaviour
         }
     }
 
+    // --- НОВЫЙ МЕТОД ДЛЯ СВЯЗИ СО СЛОТАМИ В VR ---
+    public bool RequestInstallation(PcPart part, int motherboardId)
+    {
+        // 1. Проверяем порядок сборки через твой родной метод
+        if (!CheckBuildOrder(part.type))
+        {
+            Debug.LogWarning($"<color=red>[BuildManager]:</color> Нарушен порядок! Рано ставить {part.type}.");
+            return false; // Блокируем магнит
+        }
+
+        // 2. Жесткая проверка совместимости сокета (только для процессора)
+        if (part.type == PartType.CPU)
+        {
+            MotherboardData currentMotherboard = null;
+            CpuData targetCpu = null;
+
+            // Ищем текущую материнку в базе
+            foreach (var mb in db.motherboard)
+            {
+                if (mb.id == motherboardId) { currentMotherboard = mb; break; }
+            }
+
+            // Ищем устанавливаемый процессор в базе
+            foreach (var cpu in db.cpu)
+            {
+                if (cpu.id == part.id) { targetCpu = cpu; break; }
+            }
+
+            if (currentMotherboard != null && targetCpu != null)
+            {
+                // Если сокеты не совпадают — отменяем установку
+                if (currentMotherboard.socketId != targetCpu.socketId)
+                {
+                    Debug.LogError($"<color=red>[BuildManager]:</color> Процессор (Сокет {targetCpu.socketId}) не подходит к материнке (Сокет {currentMotherboard.socketId})!");
+                    return false;
+                }
+            }
+        }
+
+        // 3. Если все ок — регистрируем деталь (вызываем твой метод)
+        OnPartInstalled(part);
+        return true; // Разрешаем магниту захватить деталь
+    }
+
     private bool CheckBuildOrder(PartType newPartType)
     {
         if (newPartType == PartType.Motherboard) return installedParts.Count == 0;

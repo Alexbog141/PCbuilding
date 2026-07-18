@@ -153,4 +153,17 @@ public class TabletSpawnManager : MonoBehaviour
 
         aiDisplayText.text = string.IsNullOrEmpty(content) ? title + "Данные отсутствуют." : title + content;
     }
+
+    [Header("Связь с логикой сборки")]
+    public BuildManager buildManager;
+
+    // Этот метод мы завтра повесим на синюю кнопку "Спросить ИИ"
+    public void OnAskAIButtonClicked()
+    {
+        if (buildManager != null)
+        {
+            aiDisplayText.text = "<b>[ИИ СИСТЕМА]:</b> Отправка данных эксперту...";
+            buildManager.FinishBuildAndCheckAI();
+        }
+    }
 }
