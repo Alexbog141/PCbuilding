@@ -14,19 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.InteractionLayerSettings
   m_LayerNames:
   - Default
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - cpu12
+  - cpu17
+  - cpu4
+  - cpu5
+  - ram4
+  - ram5
+  - m2
+  - sata
+  - pcie
+  - 8pin
+  - 24pin
+  - sysfan
+  - cooling
   - 
   - 
   - 
