@@ -1,76 +1,9 @@
 {
   "items": [
-    {
-      "id": 201,
-      "name": "NVIDIA GeForce GTX 1050",
-      "vramGb": 2,
-      "tdp": 75,
-      "lengthMm": 166,
-      "requiresAtx3": false,
-      "price": 8500
-    },
-    {
-      "id": 202,
-      "name": "NVIDIA GeForce GTX 1660",
-      "vramGb": 6,
-      "tdp": 120,
-      "lengthMm": 224,
-      "requiresAtx3": false,
-      "price": 21500
-    },
-    {
-      "id": 203,
-      "name": "NVIDIA GeForce RTX 3060",
-      "vramGb": 12,
-      "tdp": 170,
-      "lengthMm": 242,
-      "requiresAtx3": false,
-      "price": 33500
-    },
-    {
-      "id": 204,
-      "name": "AMD Radeon RX 6600",
-      "vramGb": 8,
-      "tdp": 132,
-      "lengthMm": 222,
-      "requiresAtx3": false,
-      "price": 28900
-    },
-    {
-      "id": 205,
-      "name": "NVIDIA GeForce RTX 3080",
-      "vramGb": 10,
-      "tdp": 320,
-      "lengthMm": 300,
-      "requiresAtx3": false,
-      "price": 62000
-    },
-    {
-      "id": 206,
-      "name": "AMD Radeon RX 7900 XTX",
-      "vramGb": 24,
-      "tdp": 355,
-      "lengthMm": 287,
-      "requiresAtx3": false,
-      "price": 104900
-    },
-    {
-      "id": 207,
-      "name": "NVIDIA GeForce RTX 5090",
-      "vramGb": 32,
-      "tdp": 600,
-      "lengthMm": 340,
-      "requiresAtx3": true,
-      "price": 394999
-    },
-    {
-      "id": 208,
-      "name": "Intel Arc B580",
-      "vramGb": 12,
-      "tdp": 190,
-      "lengthMm": 270,
-      "requiresAtx3": false,
-      "price": 29999
-    }
+    { "id": 401, "name": "NVIDIA GeForce RTX 2080 Ti", "vramGb": 11, "tdp": 250, "lengthMm": 267, "requiresAtx3": false, "price": 33500 },
+    { "id": 402, "name": "NVIDIA GeForce RTX 3080", "vramGb": 10, "tdp": 320, "lengthMm": 300, "requiresAtx3": false, "price": 62000 },
+    { "id": 403, "name": "AMD Radeon RX 7900 XTX", "vramGb": 24, "tdp": 355, "lengthMm": 287, "requiresAtx3": false, "price": 104900 },
+    { "id": 404, "name": "Intel Arc B580", "vramGb": 12, "tdp": 190, "lengthMm": 270, "requiresAtx3": false, "price": 29999 },
+    { "id": 405, "name": "NVIDIA GeForce RTX 5090", "vramGb": 32, "tdp": 600, "lengthMm": 340, "requiresAtx3": true, "price": 394999 }
   ]
 }

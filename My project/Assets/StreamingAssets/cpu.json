@@ -1,68 +1,10 @@
 {
   "items": [
-    {
-      "id": 1,
-      "name": "AMD Ryzen 5 5600G",
-      "socketId": 1,
-      "hasIntegratedGraphics": true,
-      "tdp": 65,
-      "price": 11200
-    },
-    {
-      "id": 2,
-      "name": "AMD Ryzen 7 5700G",
-      "socketId": 1,
-      "hasIntegratedGraphics": true,
-      "tdp": 65,
-      "price": 15400
-    },
-    {
-      "id": 3,
-      "name": "Intel Core i5-10400",
-      "socketId": 3,
-      "hasIntegratedGraphics": true,
-      "tdp": 65,
-      "price": 9800
-    },
-    {
-      "id": 4,
-      "name": "Intel Core i5-12400",
-      "socketId": 4,
-      "hasIntegratedGraphics": true,
-      "tdp": 65,
-      "price": 12700
-    },
-    {
-      "id": 5,
-      "name": "AMD Ryzen 5 3600",
-      "socketId": 1,
-      "hasIntegratedGraphics": false,
-      "tdp": 65,
-      "price": 7300
-    },
-    {
-      "id": 6,
-      "name": "AMD Ryzen 5 5600",
-      "socketId": 1,
-      "hasIntegratedGraphics": false,
-      "tdp": 65,
-      "price": 10500
-    },
-    {
-      "id": 7,
-      "name": "AMD Ryzen 5 7500F",
-      "socketId": 2,
-      "hasIntegratedGraphics": false,
-      "tdp": 65,
-      "price": 14900
-    },
-    {
-      "id": 8,
-      "name": "Intel Core i5-10400F",
-      "socketId": 3,
-      "hasIntegratedGraphics": false,
-      "tdp": 65,
-      "price": 8200
-    }
+    { "id": 1, "name": "AMD Ryzen 5 5600", "socketId": 1, "hasIntegratedGraphics": false, "tdp": 65, "price": 10500 },
+    { "id": 2, "name": "AMD Ryzen 5 7600", "socketId": 2, "hasIntegratedGraphics": true, "tdp": 65, "price": 14900 },
+    { "id": 3, "name": "AMD Ryzen 7 7800X3D", "socketId": 2, "hasIntegratedGraphics": true, "tdp": 120, "price": 35000 },
+    { "id": 4, "name": "Intel Core i9-10900", "socketId": 3, "hasIntegratedGraphics": true, "tdp": 65, "price": 19800 },
+    { "id": 5, "name": "Intel Core i5-12400F", "socketId": 4, "hasIntegratedGraphics": false, "tdp": 65, "price": 12700 },
+    { "id": 6, "name": "Intel Core i9-14900K", "socketId": 4, "hasIntegratedGraphics": true, "tdp": 125, "price": 54900 }
   ]
 }
