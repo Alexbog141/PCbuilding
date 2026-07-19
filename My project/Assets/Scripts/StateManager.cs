@@ -15,6 +15,14 @@ public class StateManager : MonoBehaviour
     // Переменная для термопасты (по умолчанию не намазана)
     public bool isThermalPasteApplied = false;
 
+    private BuildManager buildManager;
+
+    private void Start()
+    {
+        // Находим BuildManager на сцене при старте
+        buildManager = FindFirstObjectByType<BuildManager>();
+    }
+
     // Метод генерации итогового текста для нейронки (промпта)
     public string GeneratePromptForAI()
     {
@@ -33,17 +41,30 @@ public class StateManager : MonoBehaviour
         if (!string.IsNullOrEmpty(installedStorage)) prompt += "- Накопитель: " + installedStorage + "\n";
         if (!string.IsNullOrEmpty(installedCase)) prompt += "- Корпус: " + installedCase + "\n";
 
-        // Проверка состояния пасты (чтобы ИИ мог поругать, если игрок забыл её нанести)
+        // Проверка состояния пасты
         prompt += "\nТермопаста: " + (isThermalPasteApplied ? "Намазана" : "Отсутствует (забыл намазать)") + "\n";
+
+        // --- ДОБАВЛЕНИЕ ПРОВЕРКИ КАБЕЛЕЙ ДЛЯ ИИ ---
+        prompt += "\nПодключение кабелей питания:\n";
+        if (buildManager != null)
+        {
+            prompt += "- Кабель 24-pin материнки: " + (buildManager.isCable24PinConnected ? "Подключен" : "НЕ подключен!") + "\n";
+            prompt += "- Кабель 8-pin процессора: " + (buildManager.isCable8PinCpuConnected ? "Подключен" : "НЕ подключен!") + "\n";
+            prompt += "- Кабель 8-pin видеокарты: " + (buildManager.isCable8PinGpuConnected ? "Подключен" : "НЕ подключен (если GPU установлена)") + "\n";
+        }
+        else
+        {
+            prompt += "- Данные о кабелях недоступны (ошибка BuildManager)\n";
+        }
 
         return prompt;
     }
 
-    // Тестовый вызов: по нажатию на пробел выводим готовый текст в консоль
-    // Убираем кривой Update и делаем удобную кнопку в инспекторе
     [ContextMenu("Test Generate Prompt")]
     public void TestPrompt()
     {
+        // Перед тестом пытаемся найти менеджер, если в редакторе не нажали Play
+        if (buildManager == null) buildManager = FindFirstObjectByType<BuildManager>();
         Debug.Log("--- ГОТОВЫЙ ЗАПРОС ДЛЯ ИИ ---\n" + GeneratePromptForAI());
     }
 }

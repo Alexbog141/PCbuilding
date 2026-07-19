@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
-using System.Collections; // Обязательно нужно для IEnumerator
+using System.Collections;
 using UnityEngine.InputSystem;
 
 public class BuildManager : MonoBehaviour
@@ -12,7 +12,40 @@ public class BuildManager : MonoBehaviour
     [Header("Связь с ИИ")]
     public AIController aiController;
 
+    [Header("Статус кабелей")]
+    public bool isCable24PinConnected = false;
+    public bool isCable8PinCpuConnected = false;
+    public bool isCable8PinGpuConnected = false;
+
     private List<PartType> installedParts = new List<PartType>();
+
+    // --- МЕТОД ДЛЯ РЕГИСТРАЦИИ ПОДКЛЮЧЕНИЯ КАБЕЛЕЙ ---
+    public void OnCableConnected(string cableID)
+    {
+        if (cableID == "connector_24pin")
+        {
+            isCable24PinConnected = true;
+            Debug.Log("<color=green>[BuildManager]:</color> Кабель 24-pin успешно подключен!");
+        }
+        else if (cableID == "connector_8pin")
+        {
+            // Так как у нас два кабеля 8-pin (на проц и видюху), 
+            // сначала подключаем процессорный, потом видеокарту
+            if (!isCable8PinCpuConnected)
+            {
+                isCable8PinCpuConnected = true;
+                Debug.Log("<color=green>[BuildManager]:</color> Кабель питания CPU (8-pin) подключен!");
+            }
+            else
+            {
+                isCable8PinGpuConnected = true;
+                Debug.Log("<color=green>[BuildManager]:</color> Кабель питания GPU (8-pin) подключен!");
+            }
+        }
+
+        // Тут можно сразу передавать инфу в StateManager, если у него есть под это поля,
+        // чтобы ИИ тоже видел статус проводов
+    }
 
     public void OnPartInstalled(PcPart installedPart)
     {
@@ -126,29 +159,24 @@ public class BuildManager : MonoBehaviour
         }
     }
 
-    // --- НОВЫЙ МЕТОД ДЛЯ СВЯЗИ СО СЛОТАМИ В VR ---
     public bool RequestInstallation(PcPart part, int motherboardId)
     {
-        // 1. Проверяем порядок сборки через твой родной метод
         if (!CheckBuildOrder(part.type))
         {
             Debug.LogWarning($"<color=red>[BuildManager]:</color> Нарушен порядок! Рано ставить {part.type}.");
-            return false; // Блокируем магнит
+            return false;
         }
 
-        // 2. Жесткая проверка совместимости сокета (только для процессора)
         if (part.type == PartType.CPU)
         {
             MotherboardData currentMotherboard = null;
             CpuData targetCpu = null;
 
-            // Ищем текущую материнку в базе
             foreach (var mb in db.motherboard)
             {
                 if (mb.id == motherboardId) { currentMotherboard = mb; break; }
             }
 
-            // Ищем устанавливаемый процессор в базе
             foreach (var cpu in db.cpu)
             {
                 if (cpu.id == part.id) { targetCpu = cpu; break; }
@@ -156,7 +184,6 @@ public class BuildManager : MonoBehaviour
 
             if (currentMotherboard != null && targetCpu != null)
             {
-                // Если сокеты не совпадают — отменяем установку
                 if (currentMotherboard.socketId != targetCpu.socketId)
                 {
                     Debug.LogError($"<color=red>[BuildManager]:</color> Процессор (Сокет {targetCpu.socketId}) не подходит к материнке (Сокет {currentMotherboard.socketId})!");
@@ -165,9 +192,8 @@ public class BuildManager : MonoBehaviour
             }
         }
 
-        // 3. Если все ок — регистрируем деталь (вызываем твой метод)
         OnPartInstalled(part);
-        return true; // Разрешаем магниту захватить деталь
+        return true;
     }
 
     private bool CheckBuildOrder(PartType newPartType)
@@ -186,10 +212,14 @@ public class BuildManager : MonoBehaviour
         if (aiController == null) { Debug.LogError("AIController не назначен!"); return; }
         if (stateManager == null) { Debug.LogError("StateManager не назначен!"); return; }
 
-        // Берем готовый промпт из твоего StateManager
-        string prompt = stateManager.GeneratePromptForAI();
+        // Жесткая проверка: если кабели не подключены, ИИ даже не опрашиваем
+        if (!isCable24PinConnected || !isCable8PinCpuConnected)
+        {
+            Debug.LogWarning("<color=orange>[BuildManager]:</color> Нельзя запустить ПК! Не подключены основные кабели питания.");
+            return;
+        }
 
-        // Отправляем его в нейронку
+        string prompt = stateManager.GeneratePromptForAI();
         aiController.CheckCompatibility(prompt, OnAIResponseReceived);
     }
 
@@ -198,10 +228,8 @@ public class BuildManager : MonoBehaviour
         Debug.Log($"<color=yellow>Оценка от ИИ:</color> {finalAnswer}");
     }
 
-    // --- ВАШ ТЕСТОВЫЙ БЛОК ---
     void Update()
     {
-        // Новый синтаксис отслеживания кнопок (не конфликтует с VR)
         if (Keyboard.current != null && Keyboard.current.enterKey.wasPressedThisFrame)
         {
             Debug.Log("Отправляю запрос к ИИ по кнопке Enter...");
