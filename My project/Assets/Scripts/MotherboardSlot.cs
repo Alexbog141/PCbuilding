@@ -1,68 +1,68 @@
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit; // Подключаем VR сокеты
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
-public class MotherboardSlot : MonoBehaviour
+public class MotherboardSlot : XRSocketInteractor
 {
-    [Header("Настройки слота")]
-    public PartType acceptableType; // Какой тип детали принимает этот конкретный слот
-    public int motherboardId;       // ID материнки, на которой находится слот (из твоей базы)
+    [Header("Настройки Бэкенда (Сборка ПК)")]
+    public PartType acceptableType;
+    public int motherboardId;
 
-    private UnityEngine.XR.Interaction.Toolkit.Interactors.XRSocketInteractor socket;
     private BuildManager buildManager;
 
-    void Awake()
+    protected override void Awake()
     {
-        socket = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactors.XRSocketInteractor>();
-        buildManager = FindFirstObjectByType<BuildManager>();
-
-        // Подписываемся на события сокета VR
-        socket.selectEntered.AddListener(OnPartSnapped);
-        socket.selectExited.AddListener(OnPartRemoved);
+        base.Awake();
+        buildManager = FindAnyObjectByType<BuildManager>();
     }
 
-    // Срабатывает АВТОМАТИЧЕСКИ, когда деталь примагнитилась в VR
-    private void OnPartSnapped(SelectEnterEventArgs args)
+    public override bool CanHover(IXRHoverInteractable interactable)
     {
-        // Вытаскиваем скрипт PcPart с прилетевшего объекта
-        PcPart part = args.interactableObject.transform.GetComponent<PcPart>();
+        return base.CanHover(interactable) && IsCorrectPartType(interactable);
+    }
 
-        if (part != null)
+    public override bool CanSelect(IXRSelectInteractable interactable)
+    {
+        return base.CanSelect(interactable) && IsCorrectPartType(interactable);
+    }
+
+    private bool IsCorrectPartType(IXRInteractable interactable)
+    {
+        PcPart part = interactable.transform.GetComponent<PcPart>();
+        return part != null && part.type == acceptableType;
+    }
+
+    protected override void OnSelectEntered(SelectEnterEventArgs args)
+    {
+        base.OnSelectEntered(args);
+
+        PcPart part = args.interactableObject.transform.GetComponent<PcPart>();
+        if (part != null && buildManager != null)
         {
-            // Отправляем в твой BuildManager на жесткую проверку порядка и сокета
             bool isCompatible = buildManager.RequestInstallation(part, motherboardId);
 
             if (!isCompatible)
             {
-                // Если твой бэк сказал "нельзя" — принудительно выкидываем деталь из сокета
-                StartCoroutine(EjectPartCoroutine());
+                StartCoroutine(EjectPartCoroutine(args.interactableObject));
             }
         }
     }
 
-    // Срабатывает, если игрок вытащил деталь руками из материнки
-    private void OnPartRemoved(SelectExitEventArgs args)
+    protected override void OnSelectExited(SelectExitEventArgs args)
     {
+        base.OnSelectExited(args);
+
         PcPart part = args.interactableObject.transform.GetComponent<PcPart>();
         if (part != null)
         {
-            // Здесь можно добавить логику размонтирования детали из StateManager, если нужно
-            Debug.Log($"Деталь {part.type} извлечена из сборки.");
+            Debug.Log($"[Слот] Деталь {part.type} извлечена.");
         }
     }
 
-    private System.Collections.IEnumerator EjectPartCoroutine()
+    private System.Collections.IEnumerator EjectPartCoroutine(IXRSelectInteractable interactable)
     {
         yield return new WaitForEndOfFrame();
-        // Заставляем VR-сокет отпустить неподходящую деталь
-        socket.interactionManager.SelectExit(socket, socket.hasSelection ? socket.interactablesSelected[0] : null);
-    }
-
-    void OnDestroy()
-    {
-        if (socket != null)
-        {
-            socket.selectEntered.RemoveListener(OnPartSnapped);
-            socket.selectExited.RemoveListener(OnPartRemoved);
-        }
+        interactionManager.SelectExit(this, interactable);
     }
 }
