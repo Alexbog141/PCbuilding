@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
@@ -8,6 +9,16 @@ public class MotherboardSlot : XRSocketInteractor
     [Header("Настройки Бэкенда (Сборка ПК)")]
     public PartType acceptableType;
     public int motherboardId;
+
+    [Header("Кастомное выравнивание (Принудительно)")]
+    [Tooltip("Если включено, скрипт намертво выставит позицию и поворот детали при вставке")]
+    public bool overrideTransform = true;
+
+    [Tooltip("Смещение детали внутри слота. Обычно (0, 0, 0)")]
+    public Vector3 customPosition = Vector3.zero;
+
+    [Tooltip("Угол поворота детали. Подберите нужный (например: 90, 0, 0 или 0, 90, 0)")]
+    public Vector3 customRotation = new Vector3(90f, 0f, 0f);
 
     private BuildManager buildManager;
 
@@ -37,7 +48,17 @@ public class MotherboardSlot : XRSocketInteractor
     {
         base.OnSelectEntered(args);
 
-        PcPart part = args.interactableObject.transform.GetComponent<PcPart>();
+        Transform targetTransform = args.interactableObject.transform;
+
+        // 1. Принудительно выравниваем деталь относительно центра слота
+        if (overrideTransform)
+        {
+            targetTransform.localPosition = customPosition;
+            targetTransform.localRotation = Quaternion.Euler(customRotation);
+        }
+
+        // 2. Проверка совместимости через BuildManager
+        PcPart part = targetTransform.GetComponent<PcPart>();
         if (part != null && buildManager != null)
         {
             bool isCompatible = buildManager.RequestInstallation(part, motherboardId);
@@ -60,7 +81,7 @@ public class MotherboardSlot : XRSocketInteractor
         }
     }
 
-    private System.Collections.IEnumerator EjectPartCoroutine(IXRSelectInteractable interactable)
+    private IEnumerator EjectPartCoroutine(IXRSelectInteractable interactable)
     {
         yield return new WaitForEndOfFrame();
         interactionManager.SelectExit(this, interactable);
