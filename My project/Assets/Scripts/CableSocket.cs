@@ -9,7 +9,7 @@ public class CableSocket : MonoBehaviour
     private void Start()
     {
         // Автоматически находим BuildManager на сцене
-        buildManager = FindFirstObjectByType<BuildManager>();
+        buildManager = FindAnyObjectByType<BuildManager>();
     }
 
     private void OnTriggerEnter(Collider other)

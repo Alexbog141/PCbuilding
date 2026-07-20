@@ -3,8 +3,10 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class SimpleCable : MonoBehaviour
 {
-    public Transform startPort; // Точка, откуда торчит провод из БП
-    public Transform movingConnector; // Сам пластиковый коннектор, который таскаем руками
+    public string cableID;            // "connector_24pin", "connector_8pin_cpu", "connector_8pin_gpu"
+    public Transform startPort;       // Точка выхода из БП
+    public Transform movingConnector; // Коннектор на столе
+
     private LineRenderer lineRenderer;
 
     void Start()
@@ -17,9 +19,18 @@ public class SimpleCable : MonoBehaviour
     {
         if (startPort != null && movingConnector != null)
         {
-            // Рисуем прямую линию между портом БП и коннектором
+            if (lineRenderer != null) lineRenderer.enabled = true;
             lineRenderer.SetPosition(0, startPort.position);
             lineRenderer.SetPosition(1, movingConnector.position);
         }
+        else
+        {
+            if (lineRenderer != null) lineRenderer.enabled = false;
+        }
+    }
+
+    public void SetStartPort(Transform newPort)
+    {
+        startPort = newPort;
     }
 }

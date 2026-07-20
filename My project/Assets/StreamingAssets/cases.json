@@ -1,6 +1,12 @@
 {
   "items": [
-    { "id": 701, "name": "Corsair 4000D", "maxMotherboardForm": "ATX", "maxGpuLengthMm": 420, "support360Water": true, "price": 9300 },
-    { "id": 702, "name": "Gabinete Micro-ATX", "maxMotherboardForm": "Micro-ATX", "maxGpuLengthMm": 300, "support360Water": false, "price": 3800 }
+    { 
+      "id": 701, 
+      "name": "Corsair 4000D", 
+      "maxMotherboardForm": "ATX", 
+      "maxGpuLengthMm": 420, 
+      "support360Water": true, 
+      "price": 9300 
+    }
   ]
 }

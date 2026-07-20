@@ -9,22 +9,6 @@
       "price": 9200
     },
     {
-      "id": 102,
-      "name": "MSI MAG B550 TOMAHAWK",
-      "socketId": 1,
-      "formFactor": "ATX",
-      "supportedRamType": "DDR4",
-      "price": 14900
-    },
-    {
-      "id": 103,
-      "name": "ASRock B650M-HDV/M.2",
-      "socketId": 2,
-      "formFactor": "Micro-ATX",
-      "supportedRamType": "DDR5",
-      "price": 9900
-    },
-    {
       "id": 104,
       "name": "MSI MAG B650 TOMAHAWK WIFI",
       "socketId": 2,
@@ -33,28 +17,12 @@
       "price": 17900
     },
     {
-      "id": 105,
-      "name": "GIGABYTE H510M H V2",
-      "socketId": 3,
-      "formFactor": "Micro-ATX",
-      "supportedRamType": "DDR4",
-      "price": 7800
-    },
-    {
       "id": 106,
       "name": "ASUS PRIME B560-PLUS",
       "socketId": 3,
       "formFactor": "ATX",
       "supportedRamType": "DDR4",
       "price": 11400
-    },
-    {
-      "id": 107,
-      "name": "GIGABYTE B760M DS3H DDR4",
-      "socketId": 4,
-      "formFactor": "Micro-ATX",
-      "supportedRamType": "DDR4",
-      "price": 9900
     },
     {
       "id": 108,

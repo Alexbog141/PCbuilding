@@ -1,14 +1,6 @@
 {
   "items": [
     {
-      "id": 301,
-      "name": "XPG SX6000 Pro",
-      "type": "SSD",
-      "interface": "M2_NVMe",
-      "capacityGb": 256,
-      "price": 2800
-    },
-    {
       "id": 302,
       "name": "Kingston NV2",
       "type": "SSD",
@@ -25,44 +17,12 @@
       "price": 12500
     },
     {
-      "id": 304,
-      "name": "Crucial P3 Plus",
-      "type": "SSD",
-      "interface": "M2_NVMe",
-      "capacityGb": 2000,
-      "price": 14900
-    },
-    {
       "id": 305,
       "name": "Crucial BX500",
       "type": "SSD",
       "interface": "SATA",
       "capacityGb": 480,
       "price": 3900
-    },
-    {
-      "id": 306,
-      "name": "Kingston A400",
-      "type": "SSD",
-      "interface": "SATA",
-      "capacityGb": 240,
-      "price": 2400
-    },
-    {
-      "id": 307,
-      "name": "WD Blue [WD10EZEX]",
-      "type": "HDD",
-      "interface": "SATA",
-      "capacityGb": 1000,
-      "price": 5400
-    },
-    {
-      "id": 308,
-      "name": "Seagate BarraCuda",
-      "type": "HDD",
-      "interface": "SATA",
-      "capacityGb": 2000,
-      "price": 7200
     }
   ]
 }

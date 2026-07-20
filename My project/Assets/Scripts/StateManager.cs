@@ -20,7 +20,7 @@ public class StateManager : MonoBehaviour
     private void Start()
     {
         // Находим BuildManager на сцене при старте
-        buildManager = FindFirstObjectByType<BuildManager>();
+        buildManager = FindAnyObjectByType<BuildManager>();
     }
 
     // Метод генерации итогового текста для нейронки (промпта)
@@ -64,7 +64,7 @@ public class StateManager : MonoBehaviour
     public void TestPrompt()
     {
         // Перед тестом пытаемся найти менеджер, если в редакторе не нажали Play
-        if (buildManager == null) buildManager = FindFirstObjectByType<BuildManager>();
+        if (buildManager == null) buildManager = FindAnyObjectByType<BuildManager>();
         Debug.Log("--- ГОТОВЫЙ ЗАПРОС ДЛЯ ИИ ---\n" + GeneratePromptForAI());
     }
 }

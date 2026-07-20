@@ -10,24 +10,6 @@
       "price": 1450
     },
     {
-      "id": 602,
-      "name": "ID-COOLING SE-224-XTS",
-      "type": "air",
-      "maxTdp": 220,
-      "is360mm": false,
-      "supportedSockets": [1, 2, 3, 4],
-      "price": 1850
-    },
-    {
-      "id": 603,
-      "name": "Thermalright Peerless Assassin 120 SE",
-      "type": "air",
-      "maxTdp": 245,
-      "is360mm": false,
-      "supportedSockets": [1, 2, 3, 4],
-      "price": 4100
-    },
-    {
       "id": 604,
       "name": "Deepcool AK620",
       "type": "air",
@@ -35,42 +17,6 @@
       "is360mm": false,
       "supportedSockets": [1, 2, 3, 4],
       "price": 5900
-    },
-    {
-      "id": 605,
-      "name": "ID-COOLING FROSTFLOW X 240",
-      "type": "liquid",
-      "maxTdp": 250,
-      "is360mm": false,
-      "supportedSockets": [1, 2, 3, 4],
-      "price": 4300
-    },
-    {
-      "id": 606,
-      "name": "Deepcool LE520",
-      "type": "liquid",
-      "maxTdp": 280,
-      "is360mm": false,
-      "supportedSockets": [1, 2, 3, 4],
-      "price": 5800
-    },
-    {
-      "id": 607,
-      "name": "ID-COOLING ZOOMFLOW 360 XT",
-      "type": "liquid",
-      "maxTdp": 350,
-      "is360mm": true,
-      "supportedSockets": [1, 2, 3, 4],
-      "price": 7200
-    },
-    {
-      "id": 608,
-      "name": "LIAN LI Galahad II Trinity 360",
-      "type": "liquid",
-      "maxTdp": 350,
-      "is360mm": true,
-      "supportedSockets": [1, 2, 3, 4],
-      "price": 14900
     }
   ]
 }
