@@ -1,15 +1,6 @@
 {
   "items": [
     {
-      "id": 601,
-      "name": "ID-COOLING SE-214-XT",
-      "type": "air",
-      "maxTdp": 180,
-      "is360mm": false,
-      "supportedSockets": [1, 2, 3, 4],
-      "price": 1450
-    },
-    {
       "id": 604,
       "name": "Deepcool AK620",
       "type": "air",

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
-    // Переменные для деталей
+    // Переменные для деталей (корпус выпилили)
     public string installedCpu = "";
     public string installedGpu = "";
     public string installedMotherboard = "";
@@ -10,7 +10,6 @@ public class StateManager : MonoBehaviour
     public string installedPsu = "";
     public string installedCooler = "";
     public string installedStorage = "";
-    public string installedCase = "";
 
     public bool isThermalPasteApplied = false;
 

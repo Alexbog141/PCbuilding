@@ -137,18 +137,6 @@ public class BuildManager : MonoBehaviour
                     }
                 }
                 break;
-
-            case PartType.Case:
-                for (int i = 0; i < db.cases.Length; i++)
-                {
-                    if (db.cases[i].id == installedPart.id)
-                    {
-                        stateManager.installedCase = $"{db.cases[i].name} (Макс. длина GPU: {db.cases[i].maxGpuLengthMm}мм)";
-                        installedPart.LogConnection(db.cases[i].name);
-                        break;
-                    }
-                }
-                break;
         }
 
         if (!installedParts.Contains(installedPart.type))

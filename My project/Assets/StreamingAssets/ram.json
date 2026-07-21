@@ -1,8 +1,12 @@
 {
   "items": [
-    { "id": 201, "name": "Kingston FURY Beast DDR4", "type": "DDR4", "capacityGb": 8, "frequencyMhz": 3200, "price": 2600 },
-    { "id": 202, "name": "Corsair Vengeance LPX DDR4", "type": "DDR4", "capacityGb": 32, "frequencyMhz": 3600, "price": 8600 },
-    { "id": 203, "name": "Kingston FURY Beast DDR5", "type": "DDR5", "capacityGb": 16, "frequencyMhz": 5600, "price": 7400 },
-    { "id": 204, "name": "G.Skill TRIDENT Z5 DDR5", "type": "DDR5", "capacityGb": 32, "frequencyMhz": 6400, "price": 13200 }
+    { 
+      "id": 201, 
+      "name": "Kingston FURY Beast DDR4", 
+      "type": "DDR4", 
+      "capacityGb": 8, 
+      "frequencyMhz": 3200, 
+      "price": 2600 
+    }
   ]
 }
