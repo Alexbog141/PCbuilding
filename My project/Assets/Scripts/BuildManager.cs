@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using System.Collections;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class BuildManager : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class BuildManager : MonoBehaviour
     [Header("Связь с ИИ")]
     public AIController aiController;
 
+    [Header("UI Планшета (Дисплей ИИ)")]
+    public TextMeshProUGUI aiDisplayText; // Перетащи сюда AI_Display_Text из TabletUI
+
     [Header("Статус кабелей")]
     public bool isCable24PinConnected = false;
     public bool isCable8PinCpuConnected = false;
@@ -19,7 +23,6 @@ public class BuildManager : MonoBehaviour
 
     private List<PartType> installedParts = new List<PartType>();
 
-    // --- МЕТОД ДЛЯ РЕГИСТРАЦИИ ПОДКЛЮЧЕНИЯ КАБЕЛЕЙ ---
     public void OnCableConnected(string cableID)
     {
         if (cableID == "connector_24pin")
@@ -29,8 +32,6 @@ public class BuildManager : MonoBehaviour
         }
         else if (cableID == "connector_8pin")
         {
-            // Так как у нас два кабеля 8-pin (на проц и видюху), 
-            // сначала подключаем процессорный, потом видеокарту
             if (!isCable8PinCpuConnected)
             {
                 isCable8PinCpuConnected = true;
@@ -42,9 +43,6 @@ public class BuildManager : MonoBehaviour
                 Debug.Log("<color=green>[BuildManager]:</color> Кабель питания GPU (8-pin) подключен!");
             }
         }
-
-        // Тут можно сразу передавать инфу в StateManager, если у него есть под это поля,
-        // чтобы ИИ тоже видел статус проводов
     }
 
     public void OnPartInstalled(PcPart installedPart)
@@ -212,11 +210,9 @@ public class BuildManager : MonoBehaviour
         if (aiController == null) { Debug.LogError("AIController не назначен!"); return; }
         if (stateManager == null) { Debug.LogError("StateManager не назначен!"); return; }
 
-        // Жесткая проверка: если кабели не подключены, ИИ даже не опрашиваем
-        if (!isCable24PinConnected || !isCable8PinCpuConnected)
+        if (aiDisplayText != null)
         {
-            Debug.LogWarning("<color=orange>[BuildManager]:</color> Нельзя запустить ПК! Не подключены основные кабели питания.");
-            return;
+            aiDisplayText.text = "ИИ анализирует сборку...";
         }
 
         string prompt = stateManager.GeneratePromptForAI();
@@ -226,6 +222,12 @@ public class BuildManager : MonoBehaviour
     private void OnAIResponseReceived(string finalAnswer)
     {
         Debug.Log($"<color=yellow>Оценка от ИИ:</color> {finalAnswer}");
+
+        // ВЫВОДИМ ОЦЕНКУ НА ЭКРАН ПЛАНШЕТА!
+        if (aiDisplayText != null)
+        {
+            aiDisplayText.text = finalAnswer;
+        }
     }
 
     void Update()

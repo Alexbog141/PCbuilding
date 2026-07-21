@@ -60,7 +60,6 @@ public class TabletSpawnManager : MonoBehaviour
         RectTransform rt = newBtnObj.GetComponent<RectTransform>();
         if (rt != null)
         {
-            // Жестко вяжем к верхнему краю
             rt.anchorMin = new Vector2(0, 1);
             rt.anchorMax = new Vector2(1, 1);
             rt.pivot = new Vector2(0.5f, 1);
@@ -68,15 +67,12 @@ public class TabletSpawnManager : MonoBehaviour
             float buttonHeight = 55f;
             float spacing = 10f;
 
-            // Считаем отступ сверху вниз
             float posY = -spacing - (buttonCount * (buttonHeight + spacing));
 
-            // Ставим позицию и размеры (-20 по ширине — это отступы по краям)
             rt.anchoredPosition = new Vector2(0, posY);
             rt.sizeDelta = new Vector2(-20, buttonHeight);
         }
         buttonCount++;
-        // ------------------------------------------
 
         TextMeshProUGUI btnText = newBtnObj.GetComponentInChildren<TextMeshProUGUI>();
         if (btnText != null) btnText.text = partName;
@@ -88,12 +84,26 @@ public class TabletSpawnManager : MonoBehaviour
         }
     }
 
+    // --- ОБНОВЛЕННЫЙ МЕТОД: ПОИСК ПО СКРИПТУ PCPART ВМЕСТО ИМЕНИ И ПОДДЕРЖКА ИНВИЗА ---
     public void SpawnComponentFromTablet(string stringPartType, int partId)
     {
         if (!System.Enum.TryParse(stringPartType, true, out PartType type)) return;
 
-        string objectNameInPool = $"{type}_{partId}";
-        Transform targetComponent = hardwarePool.Find(objectNameInPool);
+        Transform targetComponent = null;
+
+        if (hardwarePool != null)
+        {
+            // (true) включает поиск среди ВЫКЛЮЧЕННЫХ (скрытых в инвизе) объектов
+            PcPart[] allParts = hardwarePool.GetComponentsInChildren<PcPart>(true);
+            foreach (var part in allParts)
+            {
+                if (part.type == type && part.id == partId)
+                {
+                    targetComponent = part.transform;
+                    break;
+                }
+            }
+        }
 
         if (targetComponent != null)
         {
@@ -107,13 +117,14 @@ public class TabletSpawnManager : MonoBehaviour
                 rb.angularVelocity = Vector3.zero;
             }
 
+            // Достаем деталь из инвиза
             targetComponent.gameObject.SetActive(true);
             UpdateTabletScreen(type, partId);
         }
         else
         {
             if (aiDisplayText != null)
-                aiDisplayText.text = $"<color=red>Ошибка:</color> Объект '{objectNameInPool}' не найден в пуле.";
+                aiDisplayText.text = $"<color=red>Ошибка:</color> Деталь '{type}' с ID {partId} не найдена в пуле.";
         }
     }
 
@@ -157,7 +168,6 @@ public class TabletSpawnManager : MonoBehaviour
     [Header("Связь с логикой сборки")]
     public BuildManager buildManager;
 
-    // Этот метод мы завтра повесим на синюю кнопку "Спросить ИИ"
     public void OnAskAIButtonClicked()
     {
         if (buildManager != null)

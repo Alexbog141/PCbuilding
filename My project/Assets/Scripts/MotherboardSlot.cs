@@ -10,16 +10,6 @@ public class MotherboardSlot : XRSocketInteractor
     public PartType acceptableType;
     public int motherboardId;
 
-    [Header("Кастомное выравнивание (Принудительно)")]
-    [Tooltip("Если включено, скрипт намертво выставит позицию и поворот детали при вставке")]
-    public bool overrideTransform = true;
-
-    [Tooltip("Смещение детали внутри слота. Обычно (0, 0, 0)")]
-    public Vector3 customPosition = Vector3.zero;
-
-    [Tooltip("Угол поворота детали. Подберите нужный (например: 90, 0, 0 или 0, 90, 0)")]
-    public Vector3 customRotation = new Vector3(90f, 0f, 0f);
-
     private BuildManager buildManager;
 
     protected override void Awake()
@@ -50,19 +40,13 @@ public class MotherboardSlot : XRSocketInteractor
 
         Transform targetTransform = args.interactableObject.transform;
 
-        // 1. Принудительно выравниваем деталь относительно центра слота
-        if (overrideTransform)
-        {
-            targetTransform.localPosition = customPosition;
-            targetTransform.localRotation = Quaternion.Euler(customRotation);
-        }
-
-        // 2. Проверка совместимости через BuildManager
+        // Проверка совместимости с материнкой через BuildManager
         PcPart part = targetTransform.GetComponent<PcPart>();
         if (part != null && buildManager != null)
         {
             bool isCompatible = buildManager.RequestInstallation(part, motherboardId);
 
+            // Если деталь не подходит по правилам сборки — выплевываем
             if (!isCompatible)
             {
                 StartCoroutine(EjectPartCoroutine(args.interactableObject));
